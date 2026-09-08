@@ -5,10 +5,7 @@
   var match = /^\/together\/([0-9a-f]{48})\/?$/i.exec(location.pathname);
   // Do not retain invitation credentials in browser storage, analytics or referrers.
   var destination = appStore;
-  // Enable only after the public OneLink redirect passes live verification.
-  // AppsFlyer currently returns app unavailable for this configured template.
-  var oneLinkReady = false;
-  if (match && oneLinkReady) {
+  if (match) {
     var token = match[1].toLowerCase();
     var link = new URL('https://ohsidequest.onelink.me/qsfq/');
     link.searchParams.set('pid', 'User_invite');
